@@ -7,6 +7,7 @@ public class Main {
         String player_names;
         Player p = new Player();
         int num;
+        boolean alive=true;
 
 
         if (sc.next().equals("create_game")) {
@@ -39,9 +40,10 @@ public class Main {
             }
             else
                 System.out.println("no game created");
-            while () {
+            while (alive) {
                 int number_of_day = 0;
-                System.out.println(" Day" + number_of_day + 1);
+                number_of_day+=1;
+                System.out.println(" Day" + number_of_day);
                 for (int i = 0; i < num - 1; i++) {
                     players[i].vote();
                 }
@@ -78,14 +80,26 @@ public class Main {
 
                     }
                 }
-            }
-            while () {
                 int number_of_night = 0;
-                System.out.println(" Night " + number_of_night + 1);
+                    number_of_night+=1;
+                    System.out.println(" Night " + number_of_night);
+                    for(int i=0;i<4;i++) {
+                        p.name = sc.next();
+                        if (p instanceof doctor) {
+                            ((doctor) p).save();
+                        } else if (p instanceof silencer) {
+                            ((silencer) p).silent();
+                        }
+                        else if(p instanceof mafia || p instanceof godfather || p instanceof silencer){
+                            p.vote();
+                        }
+                        else if(p instanceof detective){
 
-
+                        }
+                    }
 
             }
+
         }
         else
             System.out.println("no game created");
