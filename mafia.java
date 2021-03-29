@@ -1,0 +1,3 @@
+class mafia extends Player{
+
+}
