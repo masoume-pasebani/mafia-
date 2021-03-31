@@ -1,13 +1,15 @@
-import java.util.Scanner;
 
 class silencer extends Player{
     @Override
     public void setRole(String role) {
         super.setRole("silencer");
     }
-    Scanner s=new Scanner(System.in);
+    Player p=new Player();
     public void silent(){
-        String n=s.next();
+        String n=sc.next();
+        if(p.name.equals(n)){
+
+        }
     }
 }
 

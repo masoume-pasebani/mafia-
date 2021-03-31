@@ -3,4 +3,5 @@ class bulletproof extends Player {
     public void setRole(String role) {
         super.setRole("bulletproof");
     }
+
 }

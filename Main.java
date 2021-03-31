@@ -46,8 +46,9 @@ public class Main {
             else if(sc.next().equals("start_game"))
                 System.out.println("no game created:/");
             int number_of_day = 0;
+            int number_of_night = 0;
             while (isalive!=0) {
-                number_of_day+=1;
+                number_of_day++;
                 System.out.println(" Day" + number_of_day);
                 for (int i = 0; i < num ; i++) {
                     players[i].vote();
@@ -86,12 +87,11 @@ public class Main {
 
                     }
                 }
-                int number_of_night = 0;
-                    number_of_night+=1;
+                    number_of_night++;
                     System.out.println(" Night " + number_of_night);
                     for (int i=0;i<num;i++){
-                        if(players[i].alive && (players[i] instanceof mafia||players[i] instanceof godfather|| players[i] instanceof silencer||players[i] instanceof doctor||players[i] instanceof detective)){
-                            System.out.println(" "+players[i].name+":"+players[i].role);
+                        if((players[i].alive==true && p instanceof mafia)|| (players[i].alive==true && p instanceof godfather )|| (players[i].alive==true && p instanceof silencer)|| (players[i].alive==true && p instanceof detective) || (players[i].alive==true && p instanceof doctor)) {
+                            System.out.println(players[i].name+":"+players[i].role);
                         }
                     }
                     for(int i=0;i<4;i++) {
@@ -104,10 +104,13 @@ public class Main {
                         else if(p instanceof mafia || p instanceof godfather || p instanceof silencer){
                             p.vote();
                         }
+                        else if(p instanceof detective){
+                            ((detective) p).choose();
+                        }
                     }
 
 
-                number_of_day++;
+
             }
 
         }
