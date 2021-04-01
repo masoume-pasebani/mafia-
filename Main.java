@@ -24,7 +24,7 @@ public class Main {
                 String str = sc.nextLine();
                 a = str.split(" ");
                 players[i].name = a[1];
-                players[i].role = a[2];
+                players[i].role = Roles.valueOf(a[2]);
                 while (!players[i].name.equals(arr[i+1])) {
                     System.out.println("user not found:/.enter the correct name:");
                     players[i].name=sc.next();
@@ -61,7 +61,7 @@ public class Main {
                     for (int i = 0; i < num ; i++) {
                         for (int j = i; j < num - 1; j++) {
                             if (players[i].name.equals(players[j].votee_name)) {
-                                players[i].count += 1;
+                                players[i].count ++;
                             }
                         }
                     }
@@ -69,7 +69,7 @@ public class Main {
                         if (players[i].count > max) {
                             max = players[i].count;
                             max_name = players[i].name;
-                            max_role = players[i].role;
+                            max_role = String.valueOf(players[i].role);
                         }
                     }
                     for (int i = 0; i < num ; i++) {
@@ -87,24 +87,25 @@ public class Main {
 
                     }
                 }
+
                     number_of_night++;
                     System.out.println(" Night " + number_of_night);
                     for (int i=0;i<num;i++){
-                        if((players[i].alive==true && p instanceof mafia)|| (players[i].alive==true && p instanceof godfather )|| (players[i].alive==true && p instanceof silencer)|| (players[i].alive==true && p instanceof detective) || (players[i].alive==true && p instanceof doctor)) {
+                        if((players[i].alive &&  players[i].role==Roles.mafia)||(players[i].alive && players[i].role==Roles.godfather)||(players[i].alive && players[i].role==Roles.silencer) || (players[i].alive && players[i].role==Roles.doctor) ||(players[i].alive && players[i].role==Roles.detective)){
                             System.out.println(players[i].name+":"+players[i].role);
                         }
                     }
                     for(int i=0;i<4;i++) {
                         p.name = sc.next();
-                        if (p instanceof doctor) {
+                        if (p.role==Roles.doctor) {
                             ((doctor) p).save();
-                        } else if (p instanceof silencer) {
+                        } else if (p.role==Roles.silencer) {
                             ((silencer) p).silent();
                         }
-                        else if(p instanceof mafia || p instanceof godfather || p instanceof silencer){
+                        else if(p.role==Roles.mafia || p.role==Roles.godfather || p.role==Roles.silencer){
                             p.vote();
                         }
-                        else if(p instanceof detective){
+                        else if(p.role==Roles.detective){
                             ((detective) p).choose();
                         }
                     }
@@ -112,6 +113,7 @@ public class Main {
 
 
             }
+
 
         }
         else

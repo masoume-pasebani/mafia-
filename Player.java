@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public  class Player{
     protected String name;
-    protected String role;
+    protected Roles role;
     String voter_name;
     String votee_name;
     int count=0;
@@ -12,13 +12,13 @@ public  class Player{
     public String getName() {
         return name;
     }
-    public String getRole() {
+    public Roles getRole() {
         return role;
     }
     public void setName(String name) {
         this.name = name;
     }
-    public void setRole(String role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 

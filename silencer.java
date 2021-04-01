@@ -1,8 +1,8 @@
 
 class silencer extends Player{
     @Override
-    public void setRole(String role) {
-        super.setRole("silencer");
+    public void setRole(Roles role) {
+        super.setRole(Roles.silencer);
     }
     Player p=new Player();
     public void silent(){

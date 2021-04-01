@@ -1,13 +1,13 @@
 
 class detective extends Player{
     @Override
-    public void setRole(String role) {
-        super.setRole("detective");
+    public void setRole(Roles role) {
+        super.setRole(Roles.detective);
     }
     Player p=new Player();
     public void choose(){
         String n=sc.next();
-        if(p.name.equals(n) && p instanceof mafia || p instanceof silencer){
+        if((p.name.equals(n) && p.role==Roles.mafia)||(p.name.equals(n)  && p.role==Roles.silencer)){
             System.out.println(" Yes");
         }
         else
