@@ -5,6 +5,9 @@ class mafia extends Player{
     }
     Player p=new Player(name,role,alive);
     public void kill(){
-        String n=
+        String n=sc.next();
+        if(n.equals(p.name)){
+            p.count++;
+        }
     }
 }

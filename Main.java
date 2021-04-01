@@ -1,4 +1,4 @@
-import javax.management.relation.Role;
+
 import java.util.Scanner;
 
 public class Main {
@@ -25,6 +25,8 @@ public class Main {
             String[] a;
             int number_of_roles = num;
             int number_of_mafias = 0;
+            int number_of_detective=0;
+            int number_of_doctor=0;
             for (int i = 0; i < num; i++) {
                 String str = sc.nextLine();
                 a = str.split(" ");
@@ -32,6 +34,12 @@ public class Main {
                 players[i].role = Roles.valueOf(a[2]);
                 if ((players[i].role == Roles.mafia) || (players[i].role == Roles.silencer) || (players[i].role == Roles.godfather)) {
                     number_of_mafias += 1;
+                }
+                if((players[i].role==Roles.doctor)){
+                    number_of_doctor++;
+                }
+                if((players[i].role==Roles.detective)){
+                    number_of_detective++;
                 }
                 while (!players[i].name.equals(arr[i + 1])) {
                     System.out.println("user not found:/.enter the correct name:");
@@ -62,23 +70,25 @@ public class Main {
                 for (int i = 0; i < num; i++) {
                     players[i].vote();
                 }
-                int max = num / 2;
+                int max =0;
                 String max_name = " ";
                 String max_role = " ";
 
                 if (sc.next().equals("end_vote")) {
                     for (int i = 0; i < num; i++) {
-                        for (int j = 0; j < num - 1 - i; j++) {
+                        for (int j = 0; j < num -1; j++) {
                             if (players[i].name.equals(players[j].votee_name)) {
                                 players[i].count++;
                             }
                         }
                     }
+                    int index = 0;
                     for (int i = 0; i < num; i++) {
                         if (players[i].count > max) {
                             max = players[i].count;
                             max_name = players[i].name;
                             max_role = String.valueOf(players[i].role);
+                            index=i;
                         }
                     }
                     for (int i = 0; i < num; i++) {
@@ -87,13 +97,16 @@ public class Main {
                             System.exit(0);
                         } else if (max > players[i].count) {
                             System.out.println(max_name + " died");
-                            players[i].alive = false;
+                            players[index].alive = false;
                             break;
                         } else {
                             System.out.println("nobody died");
                             break;
                         }
                     }
+                }
+                if(p.alive==false){
+                    players[num--]=p;
                 }
                 number_of_night++;
                 System.out.println(" Night " + number_of_night);
@@ -108,26 +121,35 @@ public class Main {
                 godfather g = new godfather(name, Roles.godfather, true);
                 silencer s = new silencer(name, Roles.silencer, true);
                 String names;
-                while (sc.next() != "end_night") {
+                for(int i=0;i<number_of_mafias+number_of_doctor+number_of_detective;i++) {
                     names = sc.next();
                     if (names.equals(d.name)) {
                         d.save();
+                        break;
                     } else if ((names.equals(m.name)) || (names.equals(g.name)) || (names.equals(s.name))) {
                         m.kill();
+                        break;
                     } else if (names.equals(s.name)) {
                         s.silent();
+                        break;
                     } else if (names.equals(de.name)) {
-                        de.choose();
+                       de.choose();
+                        break;
                     }
                 }
-                continue;
+                if(sc.next().equals("end_night")){
+                    continue;
+                }
 
             }
         }
         else
             System.out.println("no game created:/");
         }
-    }
+
+}
+
+
 
 
 
