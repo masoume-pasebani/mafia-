@@ -1,9 +1,7 @@
 
 class godfather extends Player {
-    @Override
-    public void setRole(Roles role) {
-        super.setRole(Roles.godfather);
+    public godfather(String name, Roles role, boolean alive) {
+        super(name,Roles.godfather, alive);
     }
-
 }
 

@@ -1,18 +1,18 @@
 
 class detective extends Player{
-    @Override
-    public void setRole(Roles role) {
-        super.setRole(Roles.detective);
+    public detective(String name, Roles role, boolean alive) {
+        super(name,Roles.detective, alive);
     }
-    Player p=new Player();
+
+    Player p=new Player(name,role,true);
+    String n;
     public void choose(){
-        String n=sc.next();
-        if((p.name.equals(n) && p.role==Roles.mafia)||(p.name.equals(n)  && p.role==Roles.silencer)){
+        n=sc.next();
+        if((n.equals(p.name) && p.role==Roles.mafia)||(n.equals(p.name) && p.role==Roles.silencer)){
             System.out.println(" Yes");
         }
         else
             System.out.println("No");
     }
-}
-
+    }
 

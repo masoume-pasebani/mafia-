@@ -1,6 +1,6 @@
 public class villager extends Player {
-    @Override
-    public void setRole(Roles role) {
-        super.setRole(Roles.villager);
+
+    public villager(String name, Roles role, boolean alive) {
+        super(name, Roles.villager, alive);
     }
 }

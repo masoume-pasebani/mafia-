@@ -6,20 +6,12 @@ public  class Player{
     String voter_name;
     String votee_name;
     int count=0;
-    boolean alive=true;
+    boolean alive;
     Scanner sc=new Scanner(System.in);
-
-    public String getName() {
-        return name;
-    }
-    public Roles getRole() {
-        return role;
-    }
-    public void setName(String name) {
-        this.name = name;
-    }
-    public void setRole(Roles role) {
-        this.role = role;
+    public Player(String name,Roles role,boolean alive){
+        this.name=name;
+        this.role=role;
+        this.alive=true;
     }
 
     protected void vote(){

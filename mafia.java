@@ -1,6 +1,10 @@
 class mafia extends Player{
-    @Override
-    public void setRole(Roles role) {
-        super.setRole(Roles.mafia);
+
+    public mafia(String name, Roles role, boolean alive) {
+        super(name,Roles.mafia, alive);
+    }
+    Player p=new Player(name,role,alive);
+    public void kill(){
+        String n=
     }
 }

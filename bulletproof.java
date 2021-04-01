@@ -1,7 +1,5 @@
 class bulletproof extends Player {
-    @Override
-    public void setRole(Roles role) {
-        super.setRole(Roles.bulletproof);
+    public bulletproof(String name, Roles role, boolean alive) {
+        super(name,Roles.bulletproof, alive);
     }
-
 }
