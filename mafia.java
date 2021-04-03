@@ -7,7 +7,7 @@ class mafia extends Player{
     public void kill(){
         String n=sc.next();
         if(n.equals(p.name)){
-            p.count++;
+            p.mafia_vote++;
         }
     }
 }

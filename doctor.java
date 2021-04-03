@@ -4,8 +4,7 @@ class doctor extends Player {
         super(name,Roles.doctor, alive);
     }
     Player p=new Player(name,role,true);
-String namee;
     public void save(){
-        namee=sc.next();
+        String n= sc.next();
     }
 }
