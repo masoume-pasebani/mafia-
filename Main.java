@@ -129,19 +129,15 @@ public class Main {
                         System.out.println(players[i].name + ":" + players[i].role);
                     }
                 }
-                while (sc.hasNext()) {
+                while (sc.hasNextLine()) {
                     if (sc.next().equals("end_night")) {
                         break;
                     } else {
-                        if ((sc.next().equals(p.name)) && (p.role == Roles.detective)) {
-                            ((detective) p).choose();
-                        } else if ((sc.next().equals(p.name)) && (p.role == Roles.doctor)) {
-                            ((doctor) p).save();
-                        }
-                        else if((sc.next().equals(p.name)) && (p.role==Roles.mafia) ||(sc.next().equals(p.name)) && (p.role==Roles.mafia)){
-                            ((mafia)p).kill();
-                        }
-                    }
+                        String[] b=sc.next().split("");
+                              if ((b[0].equals(p.name)) && (p.role == Roles.detective)) {
+                                  ((detective) p).choose(sc.next());
+                              }
+                          }
 
                 }
             }
