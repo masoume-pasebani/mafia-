@@ -210,6 +210,7 @@ public class Main {
                                     }
                                 }
                             }
+
                             else if((players[i].alive==false && players[i].role == Roles.mafia) || (players[i].alive==false && players[i].role == Roles.godfather) || (players[i].alive==false && players[i].role == Roles.silencer) || (players[i].alive==false && players[i].role == Roles.doctor) || (players[i].alive==false && players[i].role == Roles.detective)){
                                 System.out.println("user is dead");
                             }
