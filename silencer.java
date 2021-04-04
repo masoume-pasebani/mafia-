@@ -6,19 +6,17 @@ class silencer extends Player {
 
     Player p = new Player(name, role, true);
 
-    public void silent() {
-        String n = sc.next();
+    public void silent(String n) {
         if (p.name.equals(n)) {
             if(p.voter_name.equals(n)){
-                System.out.println("voter is silenced\n");
+                System.out.println("voter is silenced");
             }
         }
     }
-    public void kill() {
-        String n = sc.next();
-        if (n.equals(p.name)) {
-            p.mafia_vote++;
-        }
+    public Object kill(String s){
+        String a[]=s.split("");
+        p.name=a[1];
+        return p;
     }
 }
 

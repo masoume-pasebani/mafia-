@@ -5,14 +5,13 @@ class detective extends Player {
     }
 
     Player p = new Player(name, role, true);
-    public void choose(String s){
-        String a[]=s.split("");
-        p.name=a[1];
+    public String  choose(String s){
+        p.name=s;
         if(p.role==Roles.mafia || p.role==Roles.silencer){
-            System.out.println("Yes");
+            return "Yes";
         }
         else
-            System.out.println("No");
+            return "No";
 
     }
 

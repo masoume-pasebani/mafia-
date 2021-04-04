@@ -4,11 +4,10 @@ class godfather extends Player {
         super(name,Roles.godfather, alive);
     }
     Player p=new Player(name,role,true);
-    public void kill() {
-        String n = sc.next();
-        if (n.equals(p.name)) {
-            p.mafia_vote++;
-        }
+    public Object kill(String s){
+        String a[]=s.split("");
+        p.name=a[1];
+        return p;
     }
 }
 

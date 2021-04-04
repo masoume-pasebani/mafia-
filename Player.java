@@ -6,7 +6,7 @@ public  class Player{
     String voter_name;
     String votee_name;
     int count=0;
-    int mafia_vote=0;
+    String night_vote;
     boolean alive;
     Scanner sc=new Scanner(System.in);
     public Player(String name,Roles role,boolean alive){

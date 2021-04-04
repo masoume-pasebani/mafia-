@@ -4,10 +4,9 @@ class mafia extends Player{
         super(name,Roles.mafia, alive);
     }
     Player p=new Player(name,role,alive);
-    public void kill(){
-        String n=sc.next();
-        if(n.equals(p.name)){
-            p.mafia_vote++;
-        }
+    public Object kill(String s){
+        String a[]=s.split("");
+        p.name=a[1];
+        return p;
     }
 }
